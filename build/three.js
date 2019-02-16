@@ -20239,13 +20239,15 @@
 
 		};
 
-		this.setSize = function ( width, height, updateStyle ) {
+		this.setSize = function ( width, height, updateStyle, metaOnly ) {
 
 			_width = width;
 			_height = height;
 
-			_canvas.width = width * _pixelRatio;
-			_canvas.height = height * _pixelRatio;
+	    if(!metaOnly){
+	      _canvas.width = width * _pixelRatio;
+	      _canvas.height = height * _pixelRatio;
+	    }
 
 			if ( updateStyle !== false ) {
 

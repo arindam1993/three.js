@@ -16170,17 +16170,17 @@ function WebGLRenderList() {
 
 		// allocate the next position in the appropriate array
 
-		if ( material.transparent ) {
+		/*if ( material.transparent ) {
 
 			array = transparent;
 			index = ++ transparentLastIndex;
 
-		} else {
+		} else {*/
 
-			array = opaque;
-			index = ++ opaqueLastIndex;
+		array = opaque;
+		index = ++ opaqueLastIndex;
 
-		}
+		//}
 
 		// recycle existing render item or grow the array
 
@@ -20233,13 +20233,15 @@ function WebGLRenderer( parameters ) {
 
 	};
 
-	this.setSize = function ( width, height, updateStyle ) {
+	this.setSize = function ( width, height, updateStyle, metaOnly ) {
 
 		_width = width;
 		_height = height;
 
-		_canvas.width = width * _pixelRatio;
-		_canvas.height = height * _pixelRatio;
+    if(!metaOnly){
+      _canvas.width = width * _pixelRatio;
+      _canvas.height = height * _pixelRatio;
+    }
 
 		if ( updateStyle !== false ) {
 
